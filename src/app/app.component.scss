@@ -4,46 +4,12 @@
   display: block;
   width: 100%;
   height: 100%;
-  background-color: purple;
+  background-color: black;
 }
 
-.main {
+main {
   width: 100%;
   height: 100%;
-  background-color: aquamarine;
-
-  .content {
-    width: 100%;
-    height: 100%;
-    background-image: url('../assets/asteroid1.jpg');
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: white;
-
-    ul {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      list-style: none;
-      text-decoration: none;
-      font-family: sans-serif;
-
-      li {
-        text-decoration: none;
-        padding-left: 20px;
-        a {
-          text-decoration: none;
-          color: white;
-        }
-      }
-    }
-  }
+  background-color: black;
 }
 

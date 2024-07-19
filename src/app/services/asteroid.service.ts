@@ -26,7 +26,7 @@ export class AsteroidService {
                 this.disastrousAsteroids.update((values) => [...values, this.asteroids()[index]]);
               }
             });
-            console.log('Fetched Astroid Data');
+            console.log('Fetched Astroid Data', this.asteroids());
             return near_earth_objects;
           }
         },

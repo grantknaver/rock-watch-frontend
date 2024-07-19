@@ -1,7 +1,17 @@
-<main class="main">
+
   <div class="content">
     <ul>
-      <li>Dangerous Objects {{disastrousAsteroids().length}}</li>
+      <li>Possible Collisions: <span class="counter">{{disasterCounter}}</span></li>
+      <hr>
+      <li class="list-item" *ngFor="let asteroid of disastrousAsteroids; index as i;" >
+        <span class="name">{{asteroid.name}}</span> - <small class="size">{{asteroid.estimated_diameter.miles.estimated_diameter_max}}</small>
+      </li>
     </ul>
+    <div class="key">
+      <ul>
+        <li>Name: <span class="name">Red</span></li>
+        <li>Size <small>(Diameter in Miles)</small>: <span class="size">Orange</span></li>
+      </ul>
+    </div>
   </div>
-</main>
+
