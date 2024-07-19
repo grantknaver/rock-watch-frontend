@@ -1,9 +1,14 @@
-import { Routes, Route } from '@angular/router';
-import { AppComponent } from './app.component';
+import { Routes } from '@angular/router';
+import { LandingComponent } from './landing/landing.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: AppComponent
-  }
+    redirectTo: 'landing',
+    pathMatch: 'full'
+  },
+  {
+    path: 'landing',
+    component: LandingComponent
+  },
 ];
