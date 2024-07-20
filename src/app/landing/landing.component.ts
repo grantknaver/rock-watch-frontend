@@ -7,7 +7,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ReactiveFormsModule } from '@angular/forms';
 import {provideNativeDateAdapter} from '@angular/material/core';
-import {MatFormFieldModule} from '@angular/material/form-field';
 
 // typical import
 import gsap from "gsap";
@@ -77,6 +76,35 @@ export class LandingComponent implements OnInit {
       );
     })}, this.disastrousAsteroids.length)
 
+    const tl3 = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.asteroid2',
+        start: 'top center',
+        end: 'bottom center',
+        scrub: true,
+      },
+      repeat: -1, // Repeat indefinitely
+      repeatRefresh: true,
+      yoyo: true,
+    });
+    const getRandomNumber = (min: number, max: number) => {
+      const number = gsap.utils.random(min, max);
+      console.log('number', number);
+      return number;
+    };
+
+    tl3.fromTo('.asteroid2',
+      {x: 500, y: 300, scale: .3},
+      {
+        duration: 15,
+        x: () => getRandomNumber(-500, 500),
+        y: () => getRandomNumber(-300, 300),
+        ease: "power1.inOut",
+        onRepeat: () => {
+
+        }
+      }
+    );
   }
 
   ngOnInit(): void {

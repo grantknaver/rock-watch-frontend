@@ -6,6 +6,7 @@
   flex-direction: column;
   height: 100%;
   overflow: hidden;
+  position: relative;
 }
 
 .content {
@@ -94,6 +95,10 @@
     .size {
       color: orange;
     }
+}
+
+.asteroid2 {
+  position: absolute;
 }
 
 
