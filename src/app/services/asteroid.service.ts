@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal, WritableSignal } from '@angular/core';
 import { AsteroidData } from '../models/asterroid.model';
-import { catchError, of } from 'rxjs';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
@@ -15,10 +15,8 @@ export class AsteroidService {
   constructor(private http: HttpClient) { }
 
   fetchAstroidData() {
-    console.log('fetchAstroidData');
-    const apiKey = 'bNBEtYwtNjNy1RljNfrAGGOYq2GRqz9JEZLD40N0';
-    const url = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${this.startDate()}&end_date=${this.endDate()}&api_key=${apiKey}`
-    // const url = `https://api.nasa.gov/neo/rest/v1/feed?start_date=2023-09-07&end_date=2023-09-08&api_key=${apiKey}`
+    console.log('fetch');
+    const url = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${this.startDate()}&end_date=${this.endDate()}&api_key=${environment.apiKey}`
     return this.http.get<AsteroidData>(url).subscribe(
       {
         next: ({near_earth_objects}) => {
@@ -31,19 +29,17 @@ export class AsteroidService {
                 this.disastrousAsteroids.update((values) => [...values, this.asteroids()[index]]);
               }
             });
-
-            console.log('Fetched Astroid Data', this.asteroids());
             return near_earth_objects;
           }
         },
         error: (err) => {
-          console.log('No data avaiable');
+          console.log('No data avaiable', err);
           this.asteroids.set([]);
           this.disastrousAsteroids.set([]);
           return err;
         },
         complete: () => console.log('Fetched Astroid Data Complete')
-      });
+    });
   }
 
 }

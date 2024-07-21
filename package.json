@@ -1,5 +1,5 @@
 {
-  "name": "mars-signals",
+  "name": "asteroid-signals",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:mars-signals": "node dist/mars-signals/server/server.mjs"
+    "serve:ssr:asteroid-signals": "node dist/asteroid-signals/server/server.mjs"
   },
   "private": true,
   "dependencies": {

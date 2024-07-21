@@ -1,4 +1,4 @@
-import { Component, effect, inject, OnInit, input } from '@angular/core';
+import { Component, effect, inject, OnInit } from '@angular/core';
 import { AsteroidService } from '../services/asteroid.service';
 import {MatInputModule} from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
@@ -7,6 +7,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ReactiveFormsModule } from '@angular/forms';
 import {provideNativeDateAdapter} from '@angular/material/core';
+
 
 // typical import
 import gsap from "gsap";
@@ -89,7 +90,6 @@ export class LandingComponent implements OnInit {
     });
     const getRandomNumber = (min: number, max: number) => {
       const number = gsap.utils.random(min, max);
-      console.log('number', number);
       return number;
     };
 
@@ -100,9 +100,7 @@ export class LandingComponent implements OnInit {
         x: () => getRandomNumber(-500, 500),
         y: () => getRandomNumber(-300, 300),
         ease: "power1.inOut",
-        onRepeat: () => {
-
-        }
+        rotate: 45
       }
     );
   }
