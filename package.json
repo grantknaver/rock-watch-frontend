@@ -1,5 +1,5 @@
 {
-  "name": "asteroid-signals",
+  "name": "rock-watch-frontend",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:asteroid-signals": "node dist/asteroid-signals/server/server.mjs"
+    "serve:ssr:rock-watch-frontend": "node dist/rock-watch-frontend/server/server.mjs"
   },
   "private": true,
   "dependencies": {

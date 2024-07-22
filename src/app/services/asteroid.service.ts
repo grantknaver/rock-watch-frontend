@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams  } from '@angular/common/http';
 import { Injectable, signal, WritableSignal } from '@angular/core';
 import { AsteroidData } from '../models/asterroid.model';
 import { environment } from '../../environments/environment.development';
@@ -15,9 +15,12 @@ export class AsteroidService {
   constructor(private http: HttpClient) { }
 
   fetchAstroidData() {
-    console.log('fetch');
-    const url = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${this.startDate()}&end_date=${this.endDate()}&api_key=${environment.apiKey}`
-    return this.http.get<AsteroidData>(url).subscribe(
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("startDate", this.startDate());
+    queryParams = queryParams.append("endDate", this.endDate());
+    const url = `${environment.backendPort}/api/asteroids-data`;
+
+    return this.http.get<AsteroidData>(url, {params: queryParams}).subscribe(
       {
         next: ({near_earth_objects}) => {
           if (near_earth_objects) {
